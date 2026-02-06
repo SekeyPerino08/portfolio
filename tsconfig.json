@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-  ],
+, "app/(guess)/(home)", "app/(guess)/projects", "app/(guess)/about"  ],
   "exclude": ["node_modules"]
 }
