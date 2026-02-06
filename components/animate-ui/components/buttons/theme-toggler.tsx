@@ -4,6 +4,7 @@ import * as React from 'react';
 import { useTheme } from 'next-themes';
 import { Monitor, Moon, Sun } from 'lucide-react';
 import { VariantProps } from 'class-variance-authority';
+import { useEffect, useState } from 'react';
 
 import {
   ThemeToggler as ThemeTogglerPrimitive,
@@ -21,11 +22,11 @@ const getIcon = (
 ) => {
   const theme = modes.includes('system') ? effective : resolved;
   return theme === 'system' ? (
-    <Monitor />
+    <Monitor className="h-5 w-5" />
   ) : theme === 'dark' ? (
-    <Moon />
+    <Moon className="h-5 w-5" />
   ) : (
-    <Sun />
+    <Sun className="h-5 w-5" />
   );
 };
 
@@ -56,6 +57,12 @@ function ThemeTogglerButton({
   ...props
 }: ThemeTogglerButtonProps) {
   const { theme, resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  // Only render real content after mount (client-only)
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <ThemeTogglerPrimitive
@@ -75,7 +82,11 @@ function ThemeTogglerButton({
           }}
           {...props}
         >
-          {getIcon(effective, resolved, modes)}
+          {mounted ? (
+            getIcon(effective, resolved, modes)
+          ) : (
+            <div className="h-5 w-5" aria-hidden="true" />
+          )}
         </button>
       )}
     </ThemeTogglerPrimitive>
