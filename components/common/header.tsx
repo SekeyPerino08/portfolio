@@ -2,12 +2,12 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ThemeToggler } from '@/components/animate-ui/components/buttons/theme-toggler';
+import { ThemeTogglerButton as ThemeToggler } from '@/components/animate-ui/components/buttons/theme-toggler';
 
 export default function Header() {
   const pathname = usePathname();
     return (
-        <header className="bg-gradient-to-b from-black/60 to-transparent backdrop-blur-sm">   {/* ← key change */}
+        <header className="bg-gradient-to-b from-black/60 to-transparent backdrop-blur-sm text-white">   {/* ← key change */}
             <div className="container mx-auto flex justify-between items-center py-6">
                 <h1 className="text-2xl font-bold">My App</h1>
                 <nav>
