@@ -2,7 +2,7 @@
 
 export default function GuestLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col h-screen mx-auto max-w-7xl">
       <main className="flex-1">
         {children}
       </main>
