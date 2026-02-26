@@ -10,7 +10,7 @@ import { StarsBackground } from "@/components/animate-ui/components/backgrounds/
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "My Next.js App",
+  title: "CKP Portfolio",
   description: "Learning Next.js App Router",
 };
 
